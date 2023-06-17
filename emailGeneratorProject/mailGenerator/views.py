@@ -3,13 +3,19 @@ import string
 import random
 
 # Create your views here.
-def generate_email(mail_domain, length, numbers=False):
-    pass
-#     characters = string.ascii_lowercase # zbiór małych liter
-#     if numbers:
-#         characters += string.digits # dodawanie liczb
-#     if mail_domain:
-#         characters += mail_domain
+def generate_email(mail_domain, length, numbers):
+    characters = string.ascii_lowercase # zbiór małych liter
+    if numbers:
+        characters += string.digits # dodawanie liczb
+    email = ''.join(random.choice(characters) for _ in range(length))
+    if mail_domain == 'Gmail':
+        email += '@gmail.com'
+    elif mail_domain == "Wp":
+        email += '@wp.pl'
+    else:
+        email += '@onet.pl'
+    return email
+
 # #     # losowanie
 #     email = ''
 #     for _ in range(length):
@@ -23,7 +29,7 @@ def home(request):
 
 def email(request):
     mail_domain = request.POST.get('mail_domain')
-    length = request.POST.get('length')
+    length = int(request.POST.get('length'))
     numbers_includes = request.POST.get('numbers')
 
     email = generate_email(mail_domain, length, numbers_includes)
