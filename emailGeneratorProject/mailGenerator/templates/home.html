@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1>E-mail generator</h1>
+<form action="{%url 'email' %}" method="post">
+
+    <label for="mail_domain"></label>
+    <select name="mail_domain" id="mail_domain">
+        <option value="gmail.com">Gmail</option>
+        <option value="wp.pl">Wp</option>
+        <option value="onet.pl">Onet</option>
+    </select>
+<br>
+    <label for="length"></label>
+    <select name="length" id="length">
+        <option value="6">6 letters</option>
+        <option value="8">8 letters</option>
+        <option value="10">10 letters</option>
+    </select>
+<br>
+    <input type="checkbox" name="numbers" id="numbers"/>
+    <label for="numbers">Numbers</label>
+<br>
+<!-- <form action="{%url 'email' %}" method="post"> -->
+    {% csrf_token %}
+    <input type="submit" value="Generate E-Mail">
+</form>
+<br>
+<form action="{%url 'about' %}" method="post">  
+    {% csrf_token %}
+    <input type="submit" value="About Page">
+</form>
+
+
+{% endblock content %}
+    
