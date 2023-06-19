@@ -1,4 +1,54 @@
-{% extends 'base.html' %}
+
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		{% load static %}
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="{% static 'css/main.css' %}">
+		<title>EMAIL GENERATOR</title>
+	</head>
+	<body>
+		<h1>E-mail generator</h1>
+		<!-- <form action="{%url 'email' %}" method="post"> -->
+		<form action="{%url 'email' %}" method="post">
+			<section class="chosenDomain"> 
+				<label for="mail_domain"></label>		
+					<select name="mail_domain" id="mail_domain">
+						<option value="Gmail">Gmail</option>
+						<option value="Wp">Wp</option>
+						<option value="Onet">Onet</option>
+					</select>
+			</section>
+			<section class="howManyLetters">
+				<label for="length"></label>
+				<select name="length" id="length">
+					<option value="6">6 letters</option>
+					<option value="8">8 letters</option>
+					<option value="10">10 letters</option>
+				</select>
+			</section>
+			<section class="howManyNumbers">
+				<input type="checkbox" name="numbers" id="numbers" />
+				<label for="numbers">Numbers</label>
+			</section>
+			<section class="buttonGenerate">
+				{% csrf_token %}
+				<input type="submit" value="Generate E-Mail" />
+			</section>
+		</form>
+		
+		<section class="buttonAbout">
+			<form action="{%url 'about' %}" method="post">
+				{% csrf_token %}
+				<input type="submit" value="About Page" />
+			</form>
+		</section>	
+	</body>
+</html>									
+	<!-- </body>
+</html>
+
 
 {% block content %}
 
@@ -22,7 +72,7 @@
     <input type="checkbox" name="numbers" id="numbers"/>
     <label for="numbers">Numbers</label>
 <br>
-<!-- <form action="{%url 'email' %}" method="post"> -->
+<form action="{%url 'email' %}" method="post">
     {% csrf_token %}
     <input type="submit" value="Generate E-Mail">
 </form>
@@ -32,6 +82,4 @@
     <input type="submit" value="About Page">
 </form>
 
-
 {% endblock content %}
-    

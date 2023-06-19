@@ -1,2 +1,18 @@
-<h1>email</h1>
-<h2>{{email}}</h2>
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		{% load static %}
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="{% static 'css/email.css' %}">
+		<title>EMAIL GENERATOR</title>
+	</head>
+	<body>
+		<h1> We have generated special email for you!</h1>
+		<h2>The special e-mail is:</h2>
+		<h3>{{email_address}}</h3>
+		<section class="emailImage">
+			<img src="/static/images/backgroundEmail.png">
+		</section>	
+	</body>
+</html>

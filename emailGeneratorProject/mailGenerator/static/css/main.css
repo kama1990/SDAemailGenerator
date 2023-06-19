@@ -1,0 +1,43 @@
+body {
+    font-family: "Arial", Times, serif ;
+    background-color: lightgray ;
+}
+
+h1 {
+    text-align: center
+}
+
+.chosenDomain {
+    /* text-align: center */
+} 
+
+.howManyLetters {
+    /* text-align: center; */
+    margin-top: 5px;
+}
+
+.howManyNumbers {
+    /* text-align: center; */
+    margin-top: 5px;
+}
+
+.buttonGenerate {
+    /* text-align: center; */
+    margin-top: 5px;
+
+}
+
+.buttonAbout {
+    /* text-align: center; */
+    margin-top: 5px;
+} 
+
+input[type="submit"] {
+    color:black; 
+    background-color: gray;
+    font-weight: bolder;
+}
+
+form {
+    text-align: center;
+}

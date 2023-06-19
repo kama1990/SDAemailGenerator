@@ -8,6 +8,7 @@ def generate_email(mail_domain, length, numbers):
     if numbers:
         characters += string.digits # dodawanie liczb
     email = ''.join(random.choice(characters) for _ in range(length))
+
     if mail_domain == 'Gmail':
         email += '@gmail.com'
     elif mail_domain == "Wp":
@@ -16,10 +17,9 @@ def generate_email(mail_domain, length, numbers):
         email += '@onet.pl'
     return email
 
-# #     # losowanie
-#     email = ''
-#     for _ in range(length):
-#         email += random.choice(characters)
+#     # losowanie
+
+    
 
 
 def home(request):
@@ -30,11 +30,11 @@ def home(request):
 def email(request):
     mail_domain = request.POST.get('mail_domain')
     length = int(request.POST.get('length'))
-    numbers_includes = request.POST.get('numbers')
+    numbers = request.POST.get('numbers')
 
-    email = generate_email(mail_domain, length, numbers_includes)
+    email_address = generate_email(mail_domain, length, numbers)
 
-    return render(request, 'email.html', {'email': email})
+    return render(request, 'email.html', {'email_address': email_address})
 
 
 def about(request):

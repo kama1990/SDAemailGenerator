@@ -1,0 +1,9 @@
+body {
+
+    background-color: black;
+    color: aliceblue;
+    text-align: center;
+}
+.emailImage img {
+    max-width: 20%;
+}
